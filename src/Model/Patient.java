@@ -20,13 +20,13 @@ public class Patient {
     static{
         sequentialID = 0;
     }
-    public Patient(int id, String name, int age, long phoneNumber, long familyMemberPhoneNumber, boolean isActivePatient) {
+    public Patient(String name, int age, long phoneNumber, long familyMemberPhoneNumber) {
         this.id = sequentialID++;
         this.name = name;
         this.age = age;
         this.phoneNumber = phoneNumber;
         this.familyMemberPhoneNumber = familyMemberPhoneNumber;
-        this.isActivePatient = isActivePatient;
+        this.isActivePatient = true;
     }
 
     public int getId() {

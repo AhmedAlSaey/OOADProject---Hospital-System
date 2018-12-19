@@ -5,6 +5,7 @@
  */
 package ooadproject;
 
+import View.MainProgram;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,9 +20,8 @@ public class OOADProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.DATE, 3);
-        System.out.println(c.get(Calendar.YEAR));
+        MainProgram m=new MainProgram();
+        m.show();
     }
     
 }
