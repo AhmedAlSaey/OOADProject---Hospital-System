@@ -5,6 +5,10 @@
  */
 package ooadproject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author Tasneem
@@ -15,7 +19,9 @@ public class OOADProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.DATE, 3);
+        System.out.println(c.get(Calendar.YEAR));
     }
     
 }
