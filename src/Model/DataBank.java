@@ -18,10 +18,10 @@ public class DataBank {
         patients.add(p);
         
     }
-    public static void printPatient()
-    {
-        for (int i = 0; i < patients.size(); i++) {
-            System.out.println(patients.get(i).getName());
-        }
-    }
+//    public static void printPatient()
+//    {
+//        for (int i = 0; i < patients.size(); i++) {
+//            System.out.println(patients.get(i).getName());
+//        }
+//    }
 }
