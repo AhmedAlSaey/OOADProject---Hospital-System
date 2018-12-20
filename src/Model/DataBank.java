@@ -13,7 +13,8 @@ import java.util.ArrayList;
  */
 public class DataBank {
     private static ArrayList<Patient> patients=new ArrayList<Patient>();
-    
+    private static ArrayList<Doctor> doctors = new ArrayList<Doctor>();
+    private static ArrayList<Department> departments = new ArrayList<Department>();
     public static void addPatient(Patient p){
         patients.add(p);
         
@@ -23,5 +24,18 @@ public class DataBank {
         for (int i = 0; i < patients.size(); i++) {
             System.out.println(patients.get(i).getName());
         }
+    }
+    public static Department getDepartment(String department){
+        Department d;
+        for (int i = 0; i < departments.size(); i++){
+            if (departments.get(i).getName().equals(department)){
+                d = departments.get(i);
+                return d;
+            }
+        }
+        return null;
+    }
+    public static void addDoctor(Doctor d){
+        doctors.add(d);
     }
 }

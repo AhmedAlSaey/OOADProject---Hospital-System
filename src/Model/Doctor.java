@@ -12,17 +12,18 @@ package Model;
 public class Doctor {
     private String name;
     private int age;
+    private Department department;
     private int salary;
     private long phoneNumber;
-    private Department department;
 
-    public Doctor(String name, int age, int salary, long phoneNumber, Department department) {
+    public Doctor(String name, int age, Department department, int salary, long phoneNumber) {
         this.name = name;
         this.age = age;
+        this.department = department;
         this.salary = salary;
         this.phoneNumber = phoneNumber;
-        this.department = department;
     }
+    
 
     public String getName() {
         return name;
