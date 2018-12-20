@@ -32,7 +32,7 @@ public class AddPatientForm extends javax.swing.JFrame {
     static void displaySuccessMessage()
     {
         JOptionPane.showMessageDialog(null,"Patient Added Successfully");
-        DataBank.printPatient();
+        //DataBank.printPatient();
     }
 
     /**

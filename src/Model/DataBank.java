@@ -19,6 +19,7 @@ public class DataBank {
         patients.add(p);
         
     }
+<<<<<<< HEAD
     public static void printPatient()
     {
         for (int i = 0; i < patients.size(); i++) {
@@ -38,4 +39,12 @@ public class DataBank {
     public static void addDoctor(Doctor d){
         doctors.add(d);
     }
+=======
+//    public static void printPatient()
+//    {
+//        for (int i = 0; i < patients.size(); i++) {
+//            System.out.println(patients.get(i).getName());
+//        }
+//    }
+>>>>>>> 7a40c9d99c0608f58b337e7361859ced513c5d07
 }
