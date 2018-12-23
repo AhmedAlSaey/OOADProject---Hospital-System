@@ -5,6 +5,9 @@
  */
 package View;
 
+import Controller.RemoveDoctorController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sherif Ashraf
@@ -17,6 +20,19 @@ public class RemoveDoctorForm extends javax.swing.JFrame {
     public RemoveDoctorForm() {
         initComponents();
     }
+    static void removeDoctor()
+    {
+        displayRemoveDoctorForm();
+    }
+    static void displayRemoveDoctorForm()
+    {
+        RemoveDoctorForm r=new RemoveDoctorForm();
+        r.show();
+    }
+    void displaySuccessMessage()
+    {
+        JOptionPane.showMessageDialog(this, "Doctor Removed Successfully");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,15 +44,15 @@ public class RemoveDoctorForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setTitle("Remove Doctor");
 
         jLabel1.setText("Doctor Name");
 
-        jTextField1.setMinimumSize(new java.awt.Dimension(70, 22));
-        jTextField1.setPreferredSize(new java.awt.Dimension(70, 22));
+        name.setMinimumSize(new java.awt.Dimension(70, 22));
+        name.setPreferredSize(new java.awt.Dimension(70, 22));
 
         jButton1.setText("Remove");
         jButton1.setActionCommand("");
@@ -56,7 +72,7 @@ public class RemoveDoctorForm extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addComponent(jLabel1)
                         .addGap(83, 83, 83)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(jButton1)))
@@ -68,7 +84,7 @@ public class RemoveDoctorForm extends javax.swing.JFrame {
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(78, 78, 78))
@@ -79,6 +95,15 @@ public class RemoveDoctorForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String doctorName=name.getText();
+        if(RemoveDoctorController.removeDoctor(doctorName))
+        {
+             this.displaySuccessMessage();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Doctor not Found");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -119,6 +144,6 @@ public class RemoveDoctorForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField name;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@
  */
 package ooadproject;
 
+import Model.DataBank;
 import View.MainProgram;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,6 +23,7 @@ public class OOADProject {
     public static void main(String[] args) {
         MainProgram m=new MainProgram();
         m.show();
+        DataBank db=new DataBank();
     }
     
 }

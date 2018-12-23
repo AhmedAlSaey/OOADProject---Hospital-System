@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -16,9 +16,9 @@ public class Department {
     private int buildingNumber;
     private int floor;
     private int budget;
-    private ArrayList<Doctor> doctors[];
+    private ArrayList<Doctor> doctors;
 
-    public Department(String name, int buildingNumber, int floor, int budget, ArrayList<Doctor>[] doctors) {
+    public Department(String name, int buildingNumber, int floor, int budget, ArrayList<Doctor> doctors) {
         this.name = name;
         this.buildingNumber = buildingNumber;
         this.floor = floor;
@@ -42,7 +42,7 @@ public class Department {
         return floor;
     }
 
-    public ArrayList<Doctor>[] getDoctors() {
+    public ArrayList<Doctor> getDoctors() {
         return doctors;
     }
 
@@ -62,7 +62,7 @@ public class Department {
         this.buildingNumber = buildingNumber;
     }
 
-    public void setDoctors(ArrayList<Doctor>[] doctors) {
+    public void setDoctors(ArrayList<Doctor> doctors) {
         this.doctors = doctors;
     }
 

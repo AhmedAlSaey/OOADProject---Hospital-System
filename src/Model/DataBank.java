@@ -15,11 +15,19 @@ public class DataBank {
     private static ArrayList<Patient> patients=new ArrayList<Patient>();
     private static ArrayList<Doctor> doctors = new ArrayList<Doctor>();
     private static ArrayList<Department> departments = new ArrayList<Department>();
+
+    public DataBank() {
+        Department d=new Department("surgery", 1, 1, 1000, doctors);
+        departments.add(d);
+        Doctor e=new Doctor("sherif", 20, d, 100, 010);
+        doctors.add(e);
+    }
+    
+    
     public static void addPatient(Patient p){
         patients.add(p);
         
     }
-<<<<<<< HEAD
     public static void printPatient()
     {
         for (int i = 0; i < patients.size(); i++) {
@@ -39,12 +47,20 @@ public class DataBank {
     public static void addDoctor(Doctor d){
         doctors.add(d);
     }
-=======
+    public static boolean removeDoctor(String doctorName){
+        for (int i = 0; i < doctors.size(); i++) {
+            if(doctors.get(i).getName().equals(doctorName))
+            {doctors.remove(doctors.get(i));
+            return true;
+            }
+        }
+        return false;
+    }
+
 //    public static void printPatient()
 //    {
 //        for (int i = 0; i < patients.size(); i++) {
 //            System.out.println(patients.get(i).getName());
 //        }
 //    }
->>>>>>> 7a40c9d99c0608f58b337e7361859ced513c5d07
 }

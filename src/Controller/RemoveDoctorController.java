@@ -5,10 +5,15 @@
  */
 package Controller;
 
+import Model.DataBank;
+
 /**
  *
  * @author Sherif Ashraf
  */
 public class RemoveDoctorController {
-    
+    public static boolean removeDoctor(String doctorName)
+    {
+        return(DataBank.removeDoctor(doctorName));
+    }
 }
