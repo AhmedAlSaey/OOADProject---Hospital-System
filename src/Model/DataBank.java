@@ -17,6 +17,8 @@ public class DataBank {
     private static ArrayList<Doctor> doctors = new ArrayList<Doctor>();
     private static ArrayList<Department> departments = new ArrayList<Department>();
     private static ArrayList<MedicalBill> medicalBills = new ArrayList<MedicalBill>();
+    private static ArrayList<Bed> beds = new ArrayList<Bed>();
+
     static int lastReferencedPatientIndex;
 
     public DataBank() {
@@ -24,6 +26,17 @@ public class DataBank {
         departments.add(d);
         Doctor e = new Doctor("sherif", 20, d, 1000, 0102104);
         doctors.add(e);
+        Patient p = new Patient("ahmed", 26, Long.parseLong("01021047921"), Long.parseLong("01005108452"));
+        patients.add(p);
+        Bed b1 = new Bed(1, true, 120);
+        Bed b2 = new Bed(2, false, 120);
+        Bed b3 = new Bed(3, true, 121);
+        Bed b4 = new Bed(4, false, 121);
+        beds.add(b1);
+        beds.add(b2);
+        beds.add(b3);
+        beds.add(b4);
+
     }
 
     public static void addPatient(Patient p) {
@@ -105,7 +118,6 @@ public class DataBank {
         return false;
     }
 
-
     public static void deleteDepartment(String name) {
         for (int i = 0; i < departments.size(); i++) {
             if (departments.get(i).getName().equals(name)) {
@@ -122,26 +134,53 @@ public class DataBank {
         }
     }
 
-
-    public static boolean setActiveFalse(int id){
-        for (int i = 0; i < patients.size(); i++){
-            if (patients.get(id).getId() == id){
+    public static boolean setActiveFalse(int id) {
+        for (int i = 0; i < patients.size(); i++) {
+            if (patients.get(id).getId() == id) {
                 patients.get(id).setIsActivePatient(false);
                 return true;
             }
         }
         return false;
     }
-    public static void addMedicalBill(MedicalBill m){
+
+    public static void addMedicalBill(MedicalBill m) {
         medicalBills.add(m);
     }
-    public static Doctor getDoctor(String name){
-        for (int i = 0; i < doctors.size(); i++){
-            if (doctors.get(i).getName().equals(name)){
+
+    public static Doctor getDoctor(String name) {
+        for (int i = 0; i < doctors.size(); i++) {
+            if (doctors.get(i).getName().equals(name)) {
                 return doctors.get(i);
             }
         }
         return null;
+    }
+
+    public static boolean checkPatientExistence(String patientName) {
+        for (int i = 0; i < patients.size(); i++) {
+            if (patients.get(i).getName().equals(patientName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static int reserveBed(int bedNumber) {
+        for (int i = 0; i < beds.size(); i++) {
+            if ((beds.get(i).getNumber() == bedNumber) && (beds.get(i).getisAvailable())) {
+                beds.get(i).setIsAvailable(false);
+                return 2;
+            }
+
+        }
+        return 3;
+    }
+    public static void printBed()
+    {
+        for (int i = 0; i < beds.size(); i++) {
+            System.out.println(beds.get(i).getNumber()+" "+beds.get(i).getisAvailable());
+        }
     }
 
 //    public static void printPatient()
