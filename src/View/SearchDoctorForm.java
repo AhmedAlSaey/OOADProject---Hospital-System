@@ -37,6 +37,9 @@ public class SearchDoctorForm extends javax.swing.JFrame {
         System.out.println(d.getPhoneNumber());
         this.modifySalaryTF.setText(d.getSalary() + "");
     }
+    public void displaySuccessMessage(){
+        JOptionPane.showMessageDialog(this, "Modify successful");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -220,7 +223,12 @@ public class SearchDoctorForm extends javax.swing.JFrame {
         String newDepartmentString = modifyDepartmentTF.getText();
         long newPhone = Long.parseLong(modifyPhoneNumberTF.getText());
         int newSalary = Integer.parseInt(modifySalaryTF.getText());
-        ModifyDoctorController.modifyDoctor(newName, newAge, newDepartmentString, newPhone, newSalary);
+        if(ModifyDoctorController.modifyDoctor(newName, newAge, newDepartmentString, newPhone, newSalary)){
+            displaySuccessMessage();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Department not in the system, can't modify");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

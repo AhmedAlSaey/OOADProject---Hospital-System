@@ -17,8 +17,11 @@ public class DataBank {
     private static ArrayList<Doctor> doctors = new ArrayList<Doctor>();
     private static ArrayList<Department> departments = new ArrayList<Department>();
     private static ArrayList<MedicalBill> medicalBills = new ArrayList<MedicalBill>();
+    private static ArrayList<Appointment> appointments = new ArrayList<Appointment>();
     static int lastReferencedPatientIndex;
     static int lastReferencedDoctorIndex;
+
+
     public DataBank() {
         Department d = new Department("surgery", 1, 1, 1000);
         departments.add(d);
@@ -80,6 +83,9 @@ public class DataBank {
 
     public static void addDoctor(Doctor d) {
         doctors.add(d);
+    }
+    public static void addAppointment(Appointment a){
+        appointments.add(a);
     }
 
     public static boolean removeDoctor(String doctorName) {
