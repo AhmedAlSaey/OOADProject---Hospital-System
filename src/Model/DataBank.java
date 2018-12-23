@@ -69,6 +69,14 @@ public class DataBank {
     public static void addMedicalBill(MedicalBill m){
         medicalBills.add(m);
     }
+    public static Doctor getDoctor(String name){
+        for (int i = 0; i < doctors.size(); i++){
+            if (doctors.get(i).getName().equals(name)){
+                return doctors.get(i);
+            }
+        }
+        return null;
+    }
 //    public static void printPatient()
 //    {
 //        for (int i = 0; i < patients.size(); i++) {
