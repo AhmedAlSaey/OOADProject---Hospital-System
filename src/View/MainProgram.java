@@ -51,6 +51,11 @@ public class MainProgram extends javax.swing.JFrame {
         });
 
         jButton2.setText("Checkout Patient");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Search patient");
 
@@ -146,6 +151,10 @@ public class MainProgram extends javax.swing.JFrame {
         // TODO add your handling code here:
         RemoveDoctorForm.removeDoctor();
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        CheckoutPatientForm.checkoutPatient();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
