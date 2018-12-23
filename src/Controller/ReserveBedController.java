@@ -5,10 +5,18 @@
  */
 package Controller;
 
+import Model.DataBank;
+
 /**
  *
  * @author Sherif Ashraf
  */
 public class ReserveBedController {
-    
+
+    public static int reserveBed(String patientName, int bedNumber) {
+        if (DataBank.checkPatientExistence(patientName)) {
+            return DataBank.reserveBed(bedNumber);
+        }
+        return 1;
+    }
 }
