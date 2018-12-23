@@ -45,12 +45,10 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="modifySalaryTF" pref="96" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="modifyPhoneNumberTF" pref="96" max="32767" attributes="0"/>
-                              <Component id="modifyDepartmentTF" max="32767" attributes="0"/>
-                              <Component id="modifyAgeTF" max="32767" attributes="0"/>
-                              <Component id="modifyNameTF" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="modifyPhoneNumberTF" pref="96" max="32767" attributes="0"/>
+                          <Component id="modifyDepartmentTF" max="32767" attributes="0"/>
+                          <Component id="modifyAgeTF" max="32767" attributes="0"/>
+                          <Component id="modifyNameTF" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

@@ -29,9 +29,9 @@ public class AddPatientForm extends javax.swing.JFrame {
         AddPatientForm p=new AddPatientForm();
         p.show();
     }
-    static void displaySuccessMessage()
+    void displaySuccessMessage()
     {
-        JOptionPane.showMessageDialog(null,"Patient Added Successfully");
+        JOptionPane.showMessageDialog(this,"Patient Added Successfully");
         //DataBank.printPatient();
     }
 

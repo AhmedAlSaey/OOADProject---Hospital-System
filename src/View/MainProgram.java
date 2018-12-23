@@ -65,6 +65,11 @@ public class MainProgram extends javax.swing.JFrame {
         });
 
         jButton4.setText("Schedule Appointment");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Reserve Bed for Patient");
 
@@ -172,7 +177,7 @@ public class MainProgram extends javax.swing.JFrame {
         RemoveDoctorForm.removeDoctor();
     }//GEN-LAST:event_jButton7ActionPerformed
 
-<<<<<<< HEAD
+
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         AddDepartmentForm.addDepartment();
@@ -187,7 +192,7 @@ public class MainProgram extends javax.swing.JFrame {
         // TODO add your handling code here:
         SearchPatientForm.searchPatient();
     }//GEN-LAST:event_jButton3ActionPerformed
-=======
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         CheckoutPatientForm.checkoutPatient();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -195,7 +200,11 @@ public class MainProgram extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         SearchDoctorForm.searchDoctor();
     }//GEN-LAST:event_jButton8ActionPerformed
->>>>>>> 0d8379b5a353a60b3d7138ea713981f1ba31e7d5
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     /**
      * @param args the command line arguments

@@ -31,7 +31,7 @@ public class SearchDoctorForm extends javax.swing.JFrame {
     public void displayDoctorInformation(Doctor d){
         this.modifyNameTF.setText(d.getName());
         this.modifyAgeTF.setText(d.getAge() + "");
-        this.modifyNameTF.setText(d.getDepartment().getName());
+        this.modifyDepartmentTF.setText(d.getDepartment().getName());
         this.modifyPhoneNumberTF.setText(d.getPhoneNumber() + "");
         this.modifySalaryTF.setText(d.getSalary() + "");
     }
@@ -197,7 +197,7 @@ public class SearchDoctorForm extends javax.swing.JFrame {
         String name = nameTF.getText();
         Doctor d = SearchDoctorController.searchDoctor(name);
         if (d == null){
-            JOptionPane.showMessageDialog(this, "No doctors not found");
+            JOptionPane.showMessageDialog(this, "No doctors found");
         }
         else{
             displayDoctorInformation(d);

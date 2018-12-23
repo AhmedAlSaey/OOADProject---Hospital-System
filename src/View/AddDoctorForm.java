@@ -26,7 +26,7 @@ public class AddDoctorForm extends javax.swing.JFrame {
         int age = Integer.parseInt(ageTF.getText());
         String departmentString = departmentTF.getText();
         int salary = Integer.parseInt(salaryTF.getText());
-        long phoneNumber = Long.parseLong(salaryTF.getText());
+        long phoneNumber = Long.parseLong(numberTF.getText());
         if (AddDoctorController.addNewDoctor(name, age, departmentString, salary, phoneNumber)){
             displaySuccessMessage();
         }
