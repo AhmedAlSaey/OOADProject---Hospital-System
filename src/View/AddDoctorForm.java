@@ -28,6 +28,7 @@ public class AddDoctorForm extends javax.swing.JFrame {
         int salary = Integer.parseInt(salaryTF.getText());
         long phoneNumber = Long.parseLong(numberTF.getText());
         if (AddDoctorController.addNewDoctor(name, age, departmentString, salary, phoneNumber)){
+            System.out.println(phoneNumber);
             displaySuccessMessage();
         }
         
@@ -74,6 +75,12 @@ public class AddDoctorForm extends javax.swing.JFrame {
         jLabel4.setText("Doctor's department:");
 
         jLabel5.setText("Doctor's salary:");
+
+        salaryTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salaryTFActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +156,10 @@ public class AddDoctorForm extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.addDoctor();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void salaryTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_salaryTFActionPerformed
 
     /**
      * @param args the command line arguments

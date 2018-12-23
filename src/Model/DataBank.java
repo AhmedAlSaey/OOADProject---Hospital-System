@@ -18,11 +18,11 @@ public class DataBank {
     private static ArrayList<Department> departments = new ArrayList<Department>();
     private static ArrayList<MedicalBill> medicalBills = new ArrayList<MedicalBill>();
     static int lastReferencedPatientIndex;
-
+    static int lastReferencedDoctorIndex;
     public DataBank() {
         Department d = new Department("surgery", 1, 1, 1000);
         departments.add(d);
-        Doctor e = new Doctor("sherif", 20, d, 1000, 0102104);
+        Doctor e = new Doctor("sherif", 20, d, 1000, Long.parseLong("0102104"));
         doctors.add(e);
     }
 
@@ -123,10 +123,10 @@ public class DataBank {
     }
 
 
-    public static boolean setActiveFalse(int id){
+    public static boolean setActiveFalse(String name){
         for (int i = 0; i < patients.size(); i++){
-            if (patients.get(id).getId() == id){
-                patients.get(id).setIsActivePatient(false);
+            if (patients.get(i).getName()== name){
+                patients.get(i).setIsActivePatient(false);
                 return true;
             }
         }
@@ -135,9 +135,23 @@ public class DataBank {
     public static void addMedicalBill(MedicalBill m){
         medicalBills.add(m);
     }
+    public static boolean modifyDoctor(String newName, int newAge, String newDepartmentString, long newPhone, int newSalary){
+        for (int i = 0; i < departments.size(); i++){
+            if (departments.get(i).getName() == newDepartmentString){
+                doctors.get(lastReferencedDoctorIndex).setName(newName);
+                doctors.get(lastReferencedDoctorIndex).setAge(newAge);
+                doctors.get(lastReferencedDoctorIndex).setDepartment(departments.get(i));
+                doctors.get(lastReferencedDoctorIndex).setSalary(newSalary);
+                doctors.get(lastReferencedDoctorIndex).setPhoneNumber(newPhone);
+                return true;
+            }
+        }
+        return false;
+    }
     public static Doctor getDoctor(String name){
         for (int i = 0; i < doctors.size(); i++){
             if (doctors.get(i).getName().equals(name)){
+                lastReferencedDoctorIndex = 1;
                 return doctors.get(i);
             }
         }
