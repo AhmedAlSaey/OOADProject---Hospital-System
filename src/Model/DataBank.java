@@ -139,7 +139,6 @@ public class DataBank {
         for (int i = 0; i < patients.size(); i++){
             if (patients.get(i).getName()== name){
                 patients.get(i).setIsActivePatient(false);
-
                 return true;
             }
         }
