@@ -51,6 +51,11 @@ public class MainProgram extends javax.swing.JFrame {
         });
 
         jButton2.setText("Checkout Patient");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Search patient");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +83,11 @@ public class MainProgram extends javax.swing.JFrame {
         });
 
         jButton8.setText("Search Doctor");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Add Department");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +172,7 @@ public class MainProgram extends javax.swing.JFrame {
         RemoveDoctorForm.removeDoctor();
     }//GEN-LAST:event_jButton7ActionPerformed
 
+<<<<<<< HEAD
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         AddDepartmentForm.addDepartment();
@@ -176,6 +187,15 @@ public class MainProgram extends javax.swing.JFrame {
         // TODO add your handling code here:
         SearchPatientForm.searchPatient();
     }//GEN-LAST:event_jButton3ActionPerformed
+=======
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        CheckoutPatientForm.checkoutPatient();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        SearchDoctorForm.searchDoctor();
+    }//GEN-LAST:event_jButton8ActionPerformed
+>>>>>>> 0d8379b5a353a60b3d7138ea713981f1ba31e7d5
 
     /**
      * @param args the command line arguments

@@ -16,7 +16,11 @@ public class DataBank {
     private static ArrayList<Patient> patients = new ArrayList<Patient>();
     private static ArrayList<Doctor> doctors = new ArrayList<Doctor>();
     private static ArrayList<Department> departments = new ArrayList<Department>();
+<<<<<<< HEAD
     static int lastReferencedPatientIndex;
+=======
+    private static ArrayList<MedicalBill> medicalBills = new ArrayList<MedicalBill>();
+>>>>>>> 0d8379b5a353a60b3d7138ea713981f1ba31e7d5
 
     public DataBank() {
         Department d = new Department("surgery", 1, 1, 1000);
@@ -103,6 +107,7 @@ public class DataBank {
         }
         return false;
     }
+<<<<<<< HEAD
 
     public static void deleteDepartment(String name) {
         for (int i = 0; i < departments.size(); i++) {
@@ -120,6 +125,28 @@ public class DataBank {
         }
     }
 
+=======
+    public static boolean setActiveFalse(int id){
+        for (int i = 0; i < patients.size(); i++){
+            if (patients.get(id).getId() == id){
+                patients.get(id).setIsActivePatient(false);
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void addMedicalBill(MedicalBill m){
+        medicalBills.add(m);
+    }
+    public static Doctor getDoctor(String name){
+        for (int i = 0; i < doctors.size(); i++){
+            if (doctors.get(i).getName().equals(name)){
+                return doctors.get(i);
+            }
+        }
+        return null;
+    }
+>>>>>>> 0d8379b5a353a60b3d7138ea713981f1ba31e7d5
 //    public static void printPatient()
 //    {
 //        for (int i = 0; i < patients.size(); i++) {

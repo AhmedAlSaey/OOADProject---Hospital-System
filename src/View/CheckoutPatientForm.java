@@ -5,11 +5,18 @@
  */
 package View;
 
+import Controller.CheckoutPatientController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Tasneem
  */
 public class CheckoutPatientForm extends javax.swing.JFrame {
+
+    
+
+    
 
     /**
      * Creates new form CheckoutPatientForm
@@ -17,7 +24,16 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
     public CheckoutPatientForm() {
         initComponents();
     }
-
+    static void checkoutPatient() {
+        displayCheckoutPatientForm();
+    }
+    static void displayCheckoutPatientForm() {
+        CheckoutPatientForm f = new CheckoutPatientForm();
+        f.show();
+    }
+    public void displaySuccessMessage(){
+        JOptionPane.showMessageDialog(this, "Checkout complete");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,9 +47,9 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        servicesTF = new javax.swing.JTextArea();
+        medicalBillTF = new javax.swing.JTextField();
+        patientIDTF = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setTitle("Checkout patient");
@@ -44,21 +60,21 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
 
         jLabel3.setText("Medical bill cost:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        servicesTF.setColumns(20);
+        servicesTF.setRows(5);
+        jScrollPane1.setViewportView(servicesTF);
 
-        jTextField1.setToolTipText("");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        medicalBillTF.setToolTipText("");
+        medicalBillTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                medicalBillTFActionPerformed(evt);
             }
         });
 
-        jTextField2.setToolTipText("");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        patientIDTF.setToolTipText("");
+        patientIDTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                patientIDTFActionPerformed(evt);
             }
         });
 
@@ -79,7 +95,7 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(132, 132, 132)
-                        .addComponent(jTextField1))
+                        .addComponent(medicalBillTF))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -87,7 +103,7 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
                         .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
-                            .addComponent(jTextField2)))
+                            .addComponent(patientIDTF)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)))
@@ -99,7 +115,7 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(patientIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
@@ -107,7 +123,7 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(medicalBillTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -116,16 +132,24 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void medicalBillTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicalBillTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_medicalBillTFActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void patientIDTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientIDTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_patientIDTFActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        int id = Integer.parseInt(patientIDTF.getText());
+        String services = servicesTF.getText();
+        int medicalBillCost = Integer.parseInt(medicalBillTF.getText());
+        if(CheckoutPatientController.checkoutPatient(id, services, medicalBillCost)){
+            displaySuccessMessage();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Patient not found in the system");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -169,8 +193,8 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField medicalBillTF;
+    private javax.swing.JTextField patientIDTF;
+    private javax.swing.JTextArea servicesTF;
     // End of variables declaration//GEN-END:variables
 }
