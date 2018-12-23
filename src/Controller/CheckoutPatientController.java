@@ -13,9 +13,9 @@ import Model.MedicalBill;
  * @author Sherif Ashraf
  */
 public class CheckoutPatientController {
-    public static boolean checkoutPatient(int id, String services, int medicalBillCost){
-        MedicalBill m = new MedicalBill(id, services, medicalBillCost);
-        if (DataBank.setActiveFalse(id)){
+    public static boolean checkoutPatient(String name, String services, int medicalBillCost){
+        MedicalBill m = new MedicalBill(name, services, medicalBillCost);
+        if (DataBank.setActiveFalse(name)){
             return false;
         }
         DataBank.addMedicalBill(m);

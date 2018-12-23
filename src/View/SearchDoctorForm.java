@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.ModifyDoctorController;
 import Controller.SearchDoctorController;
 import Model.Doctor;
 import javax.swing.JOptionPane;
@@ -33,6 +34,7 @@ public class SearchDoctorForm extends javax.swing.JFrame {
         this.modifyAgeTF.setText(d.getAge() + "");
         this.modifyDepartmentTF.setText(d.getDepartment().getName());
         this.modifyPhoneNumberTF.setText(d.getPhoneNumber() + "");
+        System.out.println(d.getPhoneNumber());
         this.modifySalaryTF.setText(d.getSalary() + "");
     }
 
@@ -78,6 +80,11 @@ public class SearchDoctorForm extends javax.swing.JFrame {
         jLabel5.setText("Age");
 
         jButton2.setText("Modify");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Department");
 
@@ -130,11 +137,10 @@ public class SearchDoctorForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(modifySalaryTF, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(modifyPhoneNumberTF, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                .addComponent(modifyDepartmentTF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(modifyAgeTF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(modifyNameTF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(modifyPhoneNumberTF, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                            .addComponent(modifyDepartmentTF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(modifyAgeTF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(modifyNameTF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
@@ -207,6 +213,15 @@ public class SearchDoctorForm extends javax.swing.JFrame {
     private void nameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTFActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String newName = modifyNameTF.getText();
+        int newAge = Integer.parseInt(modifyAgeTF.getText());
+        String newDepartmentString = modifyDepartmentTF.getText();
+        long newPhone = Long.parseLong(modifyPhoneNumberTF.getText());
+        int newSalary = Integer.parseInt(modifySalaryTF.getText());
+        ModifyDoctorController.modifyDoctor(newName, newAge, newDepartmentString, newPhone, newSalary);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

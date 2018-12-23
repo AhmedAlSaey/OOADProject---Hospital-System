@@ -20,11 +20,11 @@ public class DataBank {
     private static ArrayList<Bed> beds = new ArrayList<Bed>();
 
     static int lastReferencedPatientIndex;
-
+    static int lastReferencedDoctorIndex;
     public DataBank() {
         Department d = new Department("surgery", 1, 1, 1000);
         departments.add(d);
-        Doctor e = new Doctor("sherif", 20, d, 1000, 0102104);
+        Doctor e = new Doctor("sherif", 20, d, 1000, Long.parseLong("0102104"));
         doctors.add(e);
         Patient p = new Patient("ahmed", 26, Long.parseLong("01021047921"), Long.parseLong("01005108452"));
         patients.add(p);
@@ -134,10 +134,12 @@ public class DataBank {
         }
     }
 
-    public static boolean setActiveFalse(int id) {
-        for (int i = 0; i < patients.size(); i++) {
-            if (patients.get(id).getId() == id) {
-                patients.get(id).setIsActivePatient(false);
+
+    public static boolean setActiveFalse(String name){
+        for (int i = 0; i < patients.size(); i++){
+            if (patients.get(i).getName()== name){
+                patients.get(i).setIsActivePatient(false);
+
                 return true;
             }
         }
@@ -148,9 +150,26 @@ public class DataBank {
         medicalBills.add(m);
     }
 
-    public static Doctor getDoctor(String name) {
-        for (int i = 0; i < doctors.size(); i++) {
-            if (doctors.get(i).getName().equals(name)) {
+    public static boolean modifyDoctor(String newName, int newAge, String newDepartmentString, long newPhone, int newSalary){
+        for (int i = 0; i < departments.size(); i++){
+            if (departments.get(i).getName() == newDepartmentString){
+                doctors.get(lastReferencedDoctorIndex).setName(newName);
+                doctors.get(lastReferencedDoctorIndex).setAge(newAge);
+                doctors.get(lastReferencedDoctorIndex).setDepartment(departments.get(i));
+                doctors.get(lastReferencedDoctorIndex).setSalary(newSalary);
+                doctors.get(lastReferencedDoctorIndex).setPhoneNumber(newPhone);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    
+    public static Doctor getDoctor(String name){
+        for (int i = 0; i < doctors.size(); i++){
+            if (doctors.get(i).getName().equals(name)){
+                lastReferencedDoctorIndex = 1;
                 return doctors.get(i);
             }
         }

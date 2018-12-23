@@ -49,12 +49,12 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         servicesTF = new javax.swing.JTextArea();
         medicalBillTF = new javax.swing.JTextField();
-        patientIDTF = new javax.swing.JTextField();
+        patientNameTF = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setTitle("Checkout patient");
 
-        jLabel1.setText("Patient's ID:");
+        jLabel1.setText("Patient's Name:");
 
         jLabel2.setText("Services offered to patient:");
 
@@ -71,10 +71,10 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
             }
         });
 
-        patientIDTF.setToolTipText("");
-        patientIDTF.addActionListener(new java.awt.event.ActionListener() {
+        patientNameTF.setToolTipText("");
+        patientNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patientIDTFActionPerformed(evt);
+                patientNameTFActionPerformed(evt);
             }
         });
 
@@ -103,7 +103,7 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
                         .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
-                            .addComponent(patientIDTF)))
+                            .addComponent(patientNameTF)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)))
@@ -115,7 +115,7 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(patientIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(patientNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
@@ -136,15 +136,15 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_medicalBillTFActionPerformed
 
-    private void patientIDTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientIDTFActionPerformed
+    private void patientNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientNameTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_patientIDTFActionPerformed
+    }//GEN-LAST:event_patientNameTFActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int id = Integer.parseInt(patientIDTF.getText());
+        String name = patientNameTF.getText();
         String services = servicesTF.getText();
         int medicalBillCost = Integer.parseInt(medicalBillTF.getText());
-        if(CheckoutPatientController.checkoutPatient(id, services, medicalBillCost)){
+        if(CheckoutPatientController.checkoutPatient(name, services, medicalBillCost)){
             displaySuccessMessage();
         }
         else{
@@ -194,7 +194,7 @@ public class CheckoutPatientForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField medicalBillTF;
-    private javax.swing.JTextField patientIDTF;
+    private javax.swing.JTextField patientNameTF;
     private javax.swing.JTextArea servicesTF;
     // End of variables declaration//GEN-END:variables
 }

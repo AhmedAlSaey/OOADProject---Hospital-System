@@ -5,10 +5,14 @@
  */
 package Controller;
 
+import Model.DataBank;
+
 /**
  *
  * @author Sherif Ashraf
  */
 public class ModifyDoctorController {
-    
+    public static boolean modifyDoctor(String newName, int newAge, String newDepartmentString, long newPhone, int newSalary){
+        return DataBank.modifyDoctor(newName, newAge, newDepartmentString, newPhone, newSalary);
+    }
 }

@@ -10,12 +10,12 @@ package Model;
  * @author ahmedalsai
  */
 public class MedicalBill {
-    int id;
+    String name;
     String services;
     int medicalBillCost;
 
-    public MedicalBill(int id, String services, int medicalBillCost) {
-        this.id = id;
+    public MedicalBill(String name, String services, int medicalBillCost) {
+        this.name = name;
         this.services = services;
         this.medicalBillCost = medicalBillCost;
     }
