@@ -18,7 +18,7 @@ public class Department {
     private int budget;
     private ArrayList<Doctor> doctors;
 
-    public Department(String name, int buildingNumber, int floor, int budget, ArrayList<Doctor> doctors) {
+    public Department(String name, int buildingNumber, int floor, int budget) {
         this.name = name;
         this.buildingNumber = buildingNumber;
         this.floor = floor;

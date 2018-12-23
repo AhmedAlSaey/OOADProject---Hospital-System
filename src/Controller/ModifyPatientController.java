@@ -5,10 +5,15 @@
  */
 package Controller;
 
+import Model.DataBank;
+
 /**
  *
  * @author Sherif Ashraf
  */
 public class ModifyPatientController {
+    public static void modifyPatient(String newName,int newAge,long newPhoneNumber,long newFamilyphoneNumber){
+        DataBank.modifyPatient(newName,newAge,newPhoneNumber,newFamilyphoneNumber);
+    }
     
 }

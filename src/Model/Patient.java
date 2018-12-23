@@ -10,18 +10,13 @@ package Model;
  * @author Tasneem
  */
 public class Patient {
-    private static int sequentialID;
-    private int id;
     private String name;
     private int age;
     private long phoneNumber;
     private long familyMemberPhoneNumber;
     private boolean isActivePatient;
-    static{
-        sequentialID = 0;
-    }
+    
     public Patient(String name, int age, long phoneNumber, long familyMemberPhoneNumber) {
-        this.id = sequentialID++;
         this.name = name;
         this.age = age;
         this.phoneNumber = phoneNumber;
@@ -29,14 +24,15 @@ public class Patient {
         this.isActivePatient = true;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
     }
 
+    public int getAge() {
+        return age;
+    }
+    
     public long getPhoneNumber() {
         return phoneNumber;
     }
@@ -44,6 +40,11 @@ public class Patient {
     public long getFamilyMemberPhoneNumber() {
         return familyMemberPhoneNumber;
     }
+    public boolean getisActivePatient()
+    {
+        return isActivePatient;
+    }
+    
 
     public void setName(String name) {
         this.name = name;

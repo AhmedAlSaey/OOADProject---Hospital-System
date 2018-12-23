@@ -5,6 +5,10 @@
  */
 package View;
 
+import Controller.DeleteDepartmentController;
+import Model.DataBank;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sherif Ashraf
@@ -17,6 +21,21 @@ public class DeleteDepartmentForm extends javax.swing.JFrame {
     public DeleteDepartmentForm() {
         initComponents();
     }
+    public static void deleteDepartment()
+    {
+        displayDeleteDepartment();
+    }
+    public static void displayDeleteDepartment()
+    {
+        DeleteDepartmentForm d=new DeleteDepartmentForm();
+        d.show();
+    }
+    public void displaySuccessMessage()
+    {
+        JOptionPane.showMessageDialog(this, "Department Deleted Successfully /n"+"Doctors under this Department Deleted");
+        DataBank.printDepartment();
+        DataBank.printDoctor();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,18 +47,23 @@ public class DeleteDepartmentForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nameTF = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setTitle("Delete Department");
 
         jLabel1.setText("Department Name");
 
-        jTextField1.setMinimumSize(new java.awt.Dimension(70, 22));
-        jTextField1.setPreferredSize(new java.awt.Dimension(70, 22));
+        nameTF.setMinimumSize(new java.awt.Dimension(70, 22));
+        nameTF.setPreferredSize(new java.awt.Dimension(70, 22));
 
         jButton1.setText("Delete");
         jButton1.setActionCommand("");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,7 +75,7 @@ public class DeleteDepartmentForm extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addComponent(jLabel1)
                         .addGap(83, 83, 83)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(jButton1)))
@@ -63,7 +87,7 @@ public class DeleteDepartmentForm extends javax.swing.JFrame {
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(78, 78, 78))
@@ -71,6 +95,19 @@ public class DeleteDepartmentForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String name=nameTF.getText();
+        if(DeleteDepartmentController.deleteDepartment(name))
+        {
+           displaySuccessMessage();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Department doesn't exist");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,6 +147,6 @@ public class DeleteDepartmentForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nameTF;
     // End of variables declaration//GEN-END:variables
 }

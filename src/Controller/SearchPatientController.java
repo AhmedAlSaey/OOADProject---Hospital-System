@@ -5,10 +5,15 @@
  */
 package Controller;
 
+import Model.DataBank;
+import Model.Patient;
+
 /**
  *
  * @author Sherif Ashraf
  */
 public class SearchPatientController {
-    
+    public static Patient searchPatient(String name){
+        return(DataBank.searchPatient(name));
+    }
 }

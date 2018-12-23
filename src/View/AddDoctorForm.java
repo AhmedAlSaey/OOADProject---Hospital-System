@@ -6,6 +6,7 @@
 package View;
 
 import Controller.AddDoctorController;
+import Model.DataBank;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,8 +36,9 @@ public class AddDoctorForm extends javax.swing.JFrame {
         AddDoctorForm f = new AddDoctorForm();
         f.show();
     }
-    public static void displaySuccessMessage(){
-        JOptionPane.showMessageDialog(null, "Doctor added successfully");
+    public void displaySuccessMessage(){
+        JOptionPane.showMessageDialog(this, "Doctor added successfully");
+        DataBank.printDoctor();
     }
 
     /**

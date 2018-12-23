@@ -5,10 +5,21 @@
  */
 package Controller;
 
+import Model.DataBank;
+
 /**
  *
  * @author Sherif Ashraf
  */
 public class DeleteDepartmentController {
-    
+ 
+    public static boolean deleteDepartment(String name) {
+        if (DataBank.checkDepartmentexists(name)) {
+            DataBank.deleteDepartment(name);
+            DataBank.deleteDoctorsUnderDepartment(name);
+            return true;
+        }
+        return false;
+    }
+
 }
