@@ -5,6 +5,9 @@
  */
 package View;
 
+import Controller.ScheduleAppointmentController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Tasneem
@@ -16,6 +19,16 @@ public class ScheduleAppointmentForm extends javax.swing.JFrame {
      */
     public ScheduleAppointmentForm() {
         initComponents();
+    }
+    public static void scheduleAppointment(){
+        displayScheduleAppointmentForm();
+    }
+    public static void displayScheduleAppointmentForm(){
+        ScheduleAppointmentForm f = new ScheduleAppointmentForm();
+        f.show();
+    }
+    public void displaySuccessMessage(){
+        JOptionPane.showMessageDialog(this, "Appointment added");
     }
 
     /**
@@ -30,35 +43,35 @@ public class ScheduleAppointmentForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        patientNameTF = new javax.swing.JTextField();
+        doctorNameTF = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        noteTF = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         setTitle("Schedule appointment");
 
-        jLabel1.setText("Patient's ID:");
+        jLabel1.setText("Patient Name:");
 
         jLabel2.setText("Doctor's name:");
 
         jLabel3.setText("Appointment note:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        patientNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                patientNameTFActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        doctorNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                doctorNameTFActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        noteTF.setColumns(20);
+        noteTF.setRows(5);
+        jScrollPane1.setViewportView(noteTF);
 
         jButton1.setText("Schedule appointment");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,8 +93,8 @@ public class ScheduleAppointmentForm extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField1))
+                    .addComponent(doctorNameTF)
+                    .addComponent(patientNameTF))
                 .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -94,11 +107,11 @@ public class ScheduleAppointmentForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(patientNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(doctorNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -111,16 +124,27 @@ public class ScheduleAppointmentForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void patientNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientNameTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_patientNameTFActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void doctorNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorNameTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_doctorNameTFActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String dName = doctorNameTF.getText();
+        String pName = patientNameTF.getText();
+        String note = noteTF.getText();
+        if(ScheduleAppointmentController.scheduleAppointment(pName, dName, note) == 0){
+            displaySuccessMessage();
+        }
+        else if(ScheduleAppointmentController.scheduleAppointment(pName, dName, note) == 1){
+            JOptionPane.showMessageDialog(this, "Doctor not found");
+        }
+        else if(ScheduleAppointmentController.scheduleAppointment(pName, dName, note) == 2){
+            JOptionPane.showMessageDialog(this, "Patient not found");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -159,13 +183,13 @@ public class ScheduleAppointmentForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField doctorNameTF;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextArea noteTF;
+    private javax.swing.JTextField patientNameTF;
     // End of variables declaration//GEN-END:variables
 }
