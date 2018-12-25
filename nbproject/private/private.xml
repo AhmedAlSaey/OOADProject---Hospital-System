@@ -2,6 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
             <file>file:/Users/ahmedalsai/Desktop/OOADProject---Hospital-System/src/Controller/DeleteDepartmentController.java</file>
             <file>file:/Users/ahmedalsai/Desktop/OOADProject---Hospital-System/src/View/AddDepartmentForm.java</file>
@@ -11,5 +14,6 @@
             <file>file:/Users/ahmedalsai/Desktop/OOADProject---Hospital-System/src/View/DeleteDepartmentForm.java</file>
             <file>file:/Users/ahmedalsai/Desktop/OOADProject---Hospital-System/src/View/ReserveBedForm.java</file>
         </group>
+>>>>>>> f6c167c88f832609722553a514ac45941bb23f4f
     </open-files>
 </project-private>
