@@ -12,8 +12,8 @@ import Model.DataBank;
  * @author Sherif Ashraf
  */
 public class ModifyPatientController {
-    public static void modifyPatient(String newName,int newAge,long newPhoneNumber,long newFamilyphoneNumber){
-        DataBank.modifyPatient(newName,newAge,newPhoneNumber,newFamilyphoneNumber);
+    public static void modifyPatient(String newName,int newAge,long newPhoneNumber,long newFamilyphoneNumber, boolean isActive){
+        DataBank.modifyPatient(newName,newAge,newPhoneNumber,newFamilyphoneNumber, isActive);
     }
     
 }

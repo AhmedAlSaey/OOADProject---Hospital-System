@@ -24,21 +24,21 @@ public class DataBank {
 
 
     public DataBank() {
-        Department d = new Department("surgery", 1, 1, 1000);
-        departments.add(d);
-        Doctor e = new Doctor("sherif", 20, d, 1000, Long.parseLong("0102104"));
-        doctors.add(e);
-        Patient p = new Patient("ahmed", 26, Long.parseLong("01021047921"), Long.parseLong("01005108452"));
-        patients.add(p);
-        Bed b1 = new Bed(1, true, 120);
-        Bed b2 = new Bed(2, false, 120);
-        Bed b3 = new Bed(3, true, 121);
-        Bed b4 = new Bed(4, false, 121);
-        beds.add(b1);
-        beds.add(b2);
-        beds.add(b3);
-        beds.add(b4);
 
+        Department d1 = new Department("emergency", 2, 1, 30000);
+        departments.add(d1);
+        Department d2 = new Department("cardiology", 2, 2, 40000);
+        departments.add(d2);
+        Doctor e1 = new Doctor("mayar", 20, d1, 12000, Long.parseLong("01021041571"));
+        doctors.add(e1);
+        Doctor e2 = new Doctor("nada", 20, d2, 10000, Long.parseLong("01021041762"));
+        doctors.add(e2);
+        Patient p = new Patient("mahmoud", 26, Long.parseLong("01021047921"), Long.parseLong("01005108452"));
+        patients.add(p);
+        for (int i = 1; i <= 60; i++){
+            Bed b = new Bed(i, true, i);
+            beds.add(b);
+        }
     }
 
     public static void addPatient(Patient p) {
@@ -56,31 +56,32 @@ public class DataBank {
         return null;
     }
 
-    public static void modifyPatient(String newName, int newAge, long newPhoneNumber, long newFamilyphoneNumber) {
+    public static void modifyPatient(String newName, int newAge, long newPhoneNumber, long newFamilyphoneNumber, boolean isActive) {
         patients.get(lastReferencedPatientIndex).setName(newName);
         patients.get(lastReferencedPatientIndex).setAge(newAge);
         patients.get(lastReferencedPatientIndex).setPhoneNumber(newPhoneNumber);
         patients.get(lastReferencedPatientIndex).setFamilyMemberPhoneNumber(newFamilyphoneNumber);
+        patients.get(lastReferencedPatientIndex).setIsActivePatient(isActive);
 
     }
 
-    public static void printPatient() {
-        for (int i = 0; i < patients.size(); i++) {
-            System.out.println(patients.get(i).getName());
-        }
-    }
-
-    public static void printDepartment() {
-        for (int i = 0; i < departments.size(); i++) {
-            System.out.println(departments.get(i).getName() + departments.get(i).getBuildingNumber() + departments.get(i).getFloor() + departments.get(i).getBudget());
-        }
-    }
-
-    public static void printDoctor() {
-        for (int i = 0; i < doctors.size(); i++) {
-            System.out.println(doctors.get(i).getName() + doctors.get(i).getAge() + doctors.get(i).getDepartment().getName() + doctors.get(i).getSalary() + doctors.get(i).getPhoneNumber());
-        }
-    }
+//    public static void printPatient() {
+//        for (int i = 0; i < patients.size(); i++) {
+//            System.out.println(patients.get(i).getName());
+//        }
+//    }
+//
+//    public static void printDepartment() {
+//        for (int i = 0; i < departments.size(); i++) {
+//            System.out.println(departments.get(i).getName() + departments.get(i).getBuildingNumber() + departments.get(i).getFloor() + departments.get(i).getBudget());
+//        }
+//    }
+//
+//    public static void printDoctor() {
+//        for (int i = 0; i < doctors.size(); i++) {
+//            System.out.println(doctors.get(i).getName() + doctors.get(i).getAge() + doctors.get(i).getDepartment().getName() + doctors.get(i).getSalary() + doctors.get(i).getPhoneNumber());
+//        }
+//    }
 
     public static Department getDepartment(String department) {
         Department d;
@@ -127,6 +128,7 @@ public class DataBank {
         for (int i = 0; i < departments.size(); i++) {
             if (departments.get(i).getName().equals(name)) {
                 departments.remove(i);
+                break;
             }
         }
     }
@@ -135,6 +137,7 @@ public class DataBank {
         for (int i = 0; i < doctors.size(); i++) {
             if (doctors.get(i).getDepartment().getName().equals(name)) {
                 doctors.remove(i);
+                i--;
             }
         }
     }
@@ -142,7 +145,7 @@ public class DataBank {
 
     public static boolean setActiveFalse(String name){
         for (int i = 0; i < patients.size(); i++){
-            if (patients.get(i).getName()== name){
+            if (patients.get(i).getName().equals(name)){
                 patients.get(i).setIsActivePatient(false);
                 return true;
             }
@@ -156,7 +159,7 @@ public class DataBank {
 
     public static boolean modifyDoctor(String newName, int newAge, String newDepartmentString, long newPhone, int newSalary){
         for (int i = 0; i < departments.size(); i++){
-            if (departments.get(i).getName() == newDepartmentString){
+            if (departments.get(i).getName().equals(newDepartmentString)){
                 doctors.get(lastReferencedDoctorIndex).setName(newName);
                 doctors.get(lastReferencedDoctorIndex).setAge(newAge);
                 doctors.get(lastReferencedDoctorIndex).setDepartment(departments.get(i));
@@ -199,12 +202,12 @@ public class DataBank {
         }
         return 3;
     }
-    public static void printBed()
-    {
-        for (int i = 0; i < beds.size(); i++) {
-            System.out.println(beds.get(i).getNumber()+" "+beds.get(i).getisAvailable());
-        }
-    }
+//    public static void printBed()
+//    {
+//        for (int i = 0; i < beds.size(); i++) {
+//            System.out.println(beds.get(i).getNumber()+" "+beds.get(i).getisAvailable());
+//        }
+//    }
 
 //    public static void printPatient()
 //    {

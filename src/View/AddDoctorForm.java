@@ -38,7 +38,7 @@ public class AddDoctorForm extends javax.swing.JFrame {
     }
     public void displaySuccessMessage(){
         JOptionPane.showMessageDialog(this, "Doctor added successfully");
-        DataBank.printDoctor();
+//        DataBank.printDoctor();
     }
 
     /**
