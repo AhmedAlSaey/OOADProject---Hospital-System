@@ -15,8 +15,8 @@ public class DeleteDepartmentController {
  
     public static boolean deleteDepartment(String name) {
         if (DataBank.checkDepartmentexists(name)) {
-            DataBank.deleteDepartment(name);
             DataBank.deleteDoctorsUnderDepartment(name);
+            DataBank.deleteDepartment(name);
             return true;
         }
         return false;

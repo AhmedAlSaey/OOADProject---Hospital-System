@@ -16,9 +16,9 @@ public class CheckoutPatientController {
     public static boolean checkoutPatient(String name, String services, int medicalBillCost){
         MedicalBill m = new MedicalBill(name, services, medicalBillCost);
         if (DataBank.setActiveFalse(name)){
-            return false;
+            DataBank.addMedicalBill(m);
+            return true;
         }
-        DataBank.addMedicalBill(m);
-        return true;
+        return false;
     }
 }

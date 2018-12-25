@@ -32,9 +32,9 @@ public class DeleteDepartmentForm extends javax.swing.JFrame {
     }
     public void displaySuccessMessage()
     {
-        JOptionPane.showMessageDialog(this, "Department Deleted Successfully /n"+"Doctors under this Department Deleted");
-        DataBank.printDepartment();
-        DataBank.printDoctor();
+        JOptionPane.showMessageDialog(this, "Department Deleted Successfully. "+"Doctors under this Department Deleted");
+//        DataBank.printDepartment();
+//        DataBank.printDoctor();
     }
 
     /**

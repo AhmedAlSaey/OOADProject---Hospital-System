@@ -33,7 +33,7 @@ public class AddDepartmentForm extends javax.swing.JFrame {
     void displaySuccessMessage()
     {
         JOptionPane.showMessageDialog(this, "Department added Successfully");
-        DataBank.printDepartment();
+//        DataBank.printDepartment();
     }
 
     /**

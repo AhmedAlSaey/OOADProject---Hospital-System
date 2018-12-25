@@ -117,7 +117,7 @@ public class ReserveBedForm extends javax.swing.JFrame {
         } else if (index== 3) {
             JOptionPane.showMessageDialog(this, "Bed is not Available");
         }
-        DataBank.printBed();
+//        DataBank.printBed();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
